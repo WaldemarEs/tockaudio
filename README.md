@@ -110,5 +110,5 @@ Este es un proyecto personal. No se aceptan contribuciones externas por ahora.
 
 ## 📧 Contacto
 
-- Email: hola@tockaudio.com
+- Email: waldemar.escobar@gmail.com   
 - Web: https://tockaudio.com
