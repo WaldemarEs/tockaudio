@@ -20,7 +20,8 @@
       "@store/*": ["./src/store/*"],
       "@workers/*": ["./src/workers/*"],
       "@pages/*": ["./src/pages/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@context/*": ["./src/context/*"]
     }
   }
 }
