@@ -19,7 +19,8 @@
       "@lib/*": ["./src/lib/*"],
       "@store/*": ["./src/store/*"],
       "@workers/*": ["./src/workers/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }

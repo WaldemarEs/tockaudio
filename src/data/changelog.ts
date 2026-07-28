@@ -1,14 +1,13 @@
 /**
- * Archivo: src/data/changelog.ts
- * Decisión técnica: Base de datos estática para el historial de versiones (Changelog).
- * Contexto: Abastece a la página del Changelog con un array tipado de actualizaciones para evitar Hardcoding en el componente y facilitar el mantenimiento.
- * Restricciones: Sin dependencias externas. Se asume que el arreglo está ordenado de más reciente a más antiguo cronológicamente.
- * Known issues: N/A
+ * Archivo: changelog.ts
+ * Decisión técnica: Datos del changelog separados del componente para fácil mantenimiento
+ * Contexto: Centralizar los datos del changelog para que sea fácil añadir nuevas entradas
+ * Restricciones: Mantener orden cronológico inverso (más reciente primero)
  */
 
 export interface ChangelogEntry {
   version: string;
-  date: string; // Formato ISO corto: YYYY-MM-DD
+  date: string;
   title: string;
   type: 'major' | 'minor' | 'patch' | 'announcement';
   changes: {
@@ -20,50 +19,50 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     version: '1.2.0',
-    date: '2026-10-24',
-    title: 'Normalización de Volumen (Mastering)',
+    date: '2025-01-20',
+    title: 'Normalización de Volumen',
     type: 'minor',
     changes: [
-      { type: 'added', description: 'Normalización de pico y LUFS (ITU-R BS.1770) para cumplir estándares estrictos de loudness' },
-      { type: 'added', description: 'Mediciones en tiempo real de pico, RMS y Headroom (Telemetría visual)' },
-      { type: 'added', description: 'Presets rápidos para YouTube (-14 LUFS), Spotify (-16 LUFS) y Podcasts' },
-      { type: 'improved', description: 'Optimización del procesamiento de audio PCM usando buffers Float32Array para rendimiento extremo' }
+      { type: 'added', description: 'Normalización de pico y LUFS para cumplir estándares de loudness' },
+      { type: 'added', description: 'Mediciones en tiempo real de pico y loudness' },
+      { type: 'added', description: 'Presets para YouTube (-14 LUFS), Spotify (-16 LUFS) y podcasts' },
+      { type: 'improved', description: 'Optimización del procesamiento de audio para archivos grandes' }
     ]
   },
   {
     version: '1.1.0',
-    date: '2026-10-15',
-    title: 'Reducción de Ruido con Inteligencia Artificial',
+    date: '2025-01-15',
+    title: 'Reducción de Ruido con IA',
     type: 'minor',
     changes: [
-      { type: 'added', description: 'Reducción de ruido nativa con IA local usando Transformers.js y el runtime de ONNX Web' },
-      { type: 'added', description: 'Módulo Preview A/B apilado para comparar el clip original vs el audio procesado instantáneamente' },
-      { type: 'improved', description: 'Mejora agresiva en el rendimiento del renderizado en el editor multi-pista a 60 FPS' },
-      { type: 'fixed', description: 'Mitigación parcial de Memory Leak (OOM) en Safari y dispositivos iOS aislando el Garbage Collector' }
+      { type: 'added', description: 'Reducción de ruido con IA local usando Transformers.js' },
+      { type: 'added', description: 'Preview A/B para comparar original vs procesado' },
+      { type: 'improved', description: 'Mejora en el rendimiento del editor multi-pista' },
+      { type: 'fixed', description: 'Corrección de memory leak en Safari' }
     ]
   },
   {
     version: '1.0.0',
-    date: '2026-10-10',
-    title: 'Lanzamiento Oficial (V1)',
+    date: '2025-01-10',
+    title: 'Lanzamiento Oficial',
     type: 'major',
     changes: [
-      { type: 'added', description: 'Editor de audio multi-pista asíncrono y escalable con interfaz dual (Mobile/Desktop)' },
-      { type: 'added', description: 'Conversor de contenedores y codecs nativo vía WASM: WAV, MP3, OGG, FLAC, AAC' },
-      { type: 'added', description: 'Extracción directa de pistas de audio incrustadas desde video pesado (MP4, MOV, AVI, WEBM)' },
-      { type: 'added', description: 'Procesamiento masivo por lotes (Batch) de hasta 50 archivos simultáneos (Exclusivo Desktop PRO)' },
-      { type: 'added', description: 'Sistema de licencias local offline validado criptográficamente mediante RSA-2048' },
-      { type: 'added', description: '100% privacidad Edge-Computing garantizada: Procesamiento local en dispositivo, cero subidas a servidores ajenos' }
+      { type: 'added', description: 'Editor de audio multi-pista completo' },
+      { type: 'added', description: 'Conversión de formatos: WAV, MP3, OGG, FLAC, AAC' },
+      { type: 'added', description: 'Extracción de audio desde video (MP4, MOV, AVI, MKV, WEBM)' },
+      { type: 'added', description: 'Procesamiento por lotes hasta 50 archivos (PRO)' },
+      { type: 'added', description: 'Sistema de licencias con validación RSA local' },
+      { type: 'added', description: '100% procesamiento local, cero subidas a servidores' }
     ]
   },
   {
     version: '0.9.0',
-    date: '2026-10-01',
-    title: 'Beta Pública Limitada',
+    date: '2025-01-05',
+    title: 'Beta Pública',
     type: 'announcement',
     changes: [
-      { type: 'added', description: 'Versión beta pública (Release Candidate) disponible para pruebas de estrés de la comunidad web' },
-      { type: 'added', description: 'Inauguración de las páginas de documentación SEO, manifiesto de arquitectura y framework legal GDPR' }
+      { type: 'added', description: 'Versión beta pública disponible para testing' },
+      { type: 'added', description: 'Documentación inicial y guías de usuario' }
     ]
   }
 ];

@@ -24,6 +24,7 @@ export default defineConfig({
       '@store': path.resolve(__dirname, './src/store'),
       '@workers': path.resolve(__dirname, './src/workers'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   },
 

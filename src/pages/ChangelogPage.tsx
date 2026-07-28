@@ -6,7 +6,7 @@
  * Known issues: N/A
  */
 import { Link } from 'react-router-dom';
-import { changelog } from '@data/changelog';
+import { changelog, ChangelogEntry } from '@data/changelog';
 import AdBanner from '@components/ads/AdBanner';
 import { Button } from '@components/ui/button';
 import { Play, PlusCircle, Wrench, Bug, Trash2, Rocket, Zap, Clock, Info } from 'lucide-react';
@@ -64,7 +64,7 @@ export default function ChangelogPage() {
 
       {/* Timeline Principal (Vertical Line Layout) */}
       <div className="relative border-l-2 border-border/60 ml-4 md:ml-6 space-y-16">
-        {changelog.map((entry) => {
+        {changelog.map((entry: ChangelogEntry) => {
           const vStyle = VERSION_STYLES[entry.type];
           
           return (
@@ -90,7 +90,7 @@ export default function ChangelogPage() {
               {/* Lista de Cambios de esta release */}
               <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm group-hover:border-primary/30 transition-colors">
                 <ul className="space-y-4">
-                  {entry.changes.map((change, idx) => (
+                  {entry.changes.map((change: { type: 'added' | 'improved' | 'fixed' | 'removed'; description: string }, idx: number) => (
                     <li key={idx} className="flex items-start gap-4">
                       <div className={cn("px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border flex items-center justify-center gap-1.5 shrink-0 mt-0.5 w-[110px]", CHANGE_COLORS[change.type])}>
                         {CHANGE_ICONS[change.type]}
