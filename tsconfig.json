@@ -1,0 +1,25 @@
+/**
+ * Archivo: tsconfig.json
+ * Decisión técnica: Configuración raíz que referencia tsconfig.app.json y tsconfig.node.json
+ * Contexto: Vite 5 usa esta estructura para separar configuración del app y del bundler
+ * Restricciones: Este archivo solo contiene referencias, no configuración directa
+ */
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@store/*": ["./src/store/*"],
+      "@workers/*": ["./src/workers/*"],
+      "@pages/*": ["./src/pages/*"]
+    }
+  }
+}

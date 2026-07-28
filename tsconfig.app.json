@@ -1,0 +1,48 @@
+/**
+ * Archivo: tsconfig.app.json
+ * Decisión técnica: Configuración específica para el código de la aplicación (src/)
+ * Contexto: Target ESNext para soportar WebAssembly, Web Workers y features modernas
+ * Restricciones: No incluir node_modules ni archivos de configuración de Vite
+ * Known issues: Safari requiere polyfills para algunas features de ESNext
+ */
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Path aliases (deben coincidir con vite.config.ts) */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@store/*": ["./src/store/*"],
+      "@workers/*": ["./src/workers/*"],
+      "@pages/*": ["./src/pages/*"]
+    },
+
+    /* Tipos globales */
+    "types": ["vite/client", "node"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

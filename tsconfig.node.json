@@ -1,0 +1,17 @@
+/**
+ * Archivo: tsconfig.node.json
+ * Decisión técnica: Configuración específica para archivos de Node.js (vite.config.ts, scripts/)
+ * Contexto: Separa el tipado de configuración del bundler del código de la aplicación
+ * Restricciones: Solo se usa para archivos que se ejecutan en Node.js, no en el navegador
+ */
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  },
+  "include": ["vite.config.ts", "scripts/**/*.ts"]
+}
